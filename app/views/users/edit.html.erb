@@ -1,0 +1,24 @@
+<dir class="col-xs-2 col-xs-offset-3">
+  <h2>User info</h2>
+
+  <%= form_for(@user) do |f| %>
+
+    <div class="col-xs-12 user-edit-image">
+        <%= attachment_image_tag @user, :profile_image, :fill, 500, 500, class: "img-circle pull-left profile-thumb col-xs-12", fallback: "no_image.jpg" %>
+    </div>
+      <label class="control-label sr-only col-xs-12" for="inputEmail">ProfileImage</label>
+      <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+    </div>
+      <p class="re-name col-xs-12"><strong>Title</strong></p>
+        <%= f.text_field :name, class: "col-xs-12 title-field" %>
+      <p class="re-opinion col-xs-12"><strong>Introduction</strong></p>
+        <%= f.text_field :introduction, class: "col-xs-12 title-field" %><br>
+        <%= f.submit "Update User", class: "btn btn-primary col-xs-12 update-user" %>
+
+  <% end %>
+
+
+</dir>
+
+
+

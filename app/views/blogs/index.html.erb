@@ -1,0 +1,45 @@
+
+<!-- notice -->
+	<% if flash[:notice] %>
+	  <div class="alert" style="color: red">
+	    <%= flash[:notice] %>
+	  </div>
+	<% end %>
+
+<!-- body -->
+	<div class="container">
+		<div class="row index-row">
+
+<!-- sidebar -->
+	<%= render 'blogs/sidebar', blog: @blog, user: @user %>
+
+<!-- books -->
+			<div class="col-xs-9">
+				<strong class="books">Books</strong>
+				<table class="table books-table">
+					<thread>
+						<tr>
+							<th>user</th>
+							<th>Title</th>
+							<th>Opinion</th>
+						</tr>
+					</thread>
+					<tbody>
+						<% @blogs.each do |blog| %>
+							<tr>
+								<td class="user-icon">
+									<%= link_to (blog.user) do %>
+								    	<%= attachment_image_tag blog.user, :profile_image, size: '40x40', format: 'jpeg', class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg" %></td>
+								    <% end %>
+								<td class="in-title">
+									<%= link_to blog_path(blog) do %>
+										<%= blog.title %></td>
+									<% end %>
+								<td class="in-body"><%= blog.body %></td>
+							</tr>
+						</tbody>
+					<% end %>
+				</table>
+			</div>
+		</div>
+	</div>

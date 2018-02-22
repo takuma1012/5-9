@@ -1,0 +1,52 @@
+
+<section class="slice slice-lg sct-color-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+                <div class="form-user style-1 rounded has-shadow-1">
+                    <div class="form-header text-center">
+                        <h2 class="form-header-title">Log in</h2>
+                    </div>
+                    <div class="form-body">
+
+                      <div class="row">
+                          <div class="col-xs-offset-1 col-xs-10">
+
+                              <div class="text-center"></div>
+                          </div>
+                      </div>
+
+                      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <%= devise_error_messages! %>
+                        <div class="form-group has-icon">
+                          <strong>Name</strong>
+                          <label class="control-label sr-only col-xs-12" for="inputEmail">Name</label>
+                          <%= f.text_field :name, autofocus: true, class:"form-control", id:"inputName", placeholder:"name"%>
+                          <span class="fa fa-envelope form-control-icon" aria-hidden="true"></span>
+                        </div>
+                        <div class="form-group has-icon">
+                          <strong>Password</strong>
+                          <label class="control-label sr-only col-xs-12" for="inputEmail">Password</label>
+                          <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputEmail", placeholder:"password"%>
+                          <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-12">
+                        <%= f.submit "Log in", class: "btn btn-primary btn-sm col-xs-4" %>
+                      <% end %>
+                    </div>
+                      <div class="checkbox col-xs-12">
+                        <label>
+                          <input type="checkbox" value="checkboxA"> Remember me
+                        </label>
+                      </div>
+                      <a href="/users/Sign_up">Sign up</a><br>
+                      <a href="Forgot">Forgot your password?</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

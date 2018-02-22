@@ -1,0 +1,47 @@
+
+
+.list-group{
+	padding-right: 0;
+}
+.list-group-item{
+	text-align: center;
+	line-height:10px;
+}
+.glyphicon-wrench{
+}
+
+.new-book{
+	margin-top: 20px;
+	color: #353535;
+}
+.new-title, .new-body{
+	font-size: 13px;
+	line-height: 20px;
+}
+.title-field{
+	height: 20px;
+	font-size: 13px;
+	padding: 10px 0;
+}
+.opinion-field{
+	height: 50px;
+	font-size: 13px;
+}
+.create-book{
+	margin-top: 10px;
+}
+
+.books{
+	font-size: 26px;
+}
+table{
+	font-size: 13px;
+	padding-top: 10px;
+}
+.in-title, .in-body{
+	padding: 0 10px;
+}
+.index-show-bt, .index-edit-bt, .index-destroy-bt{
+	text-decoration: underline;
+	padding: 0 5px;
+}

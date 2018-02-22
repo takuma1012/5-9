@@ -1,0 +1,46 @@
+
+<!-- notice -->
+	<% if flash[:notice] %>
+	  <div class="alert" style="color: green">
+	    <%= flash[:notice] %>
+	  </div>
+	<% end %>
+
+<!-- body -->
+	<div class="container">
+		<div class="row index-row">
+
+<!-- sidebar -->
+	<%= render 'blogs/sidebar', blog: @blog, user: @blog.user %>
+
+<!-- books detail -->
+			<div class="col-xs-9">
+				<strong class="books" style="font-size: 32px">Book Detail</strong>
+				<table class="table books-table">
+					<tbody>
+						<tr>
+							<td class="user-icon"><%= attachment_image_tag @blog.user, :profile_image, size:'80x80', format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %></td>
+							<td>
+								<%= @blog.title %>
+							</td>
+							<td>
+								<%= @blog.body %>
+							</td>
+						<% if @blog.user == current_user %>
+							<td>
+								<%= link_to edit_blog_path do %>
+									<span class="btn btn-success" style="width: 60px">Edit</span>
+								<% end %>
+							</td>
+							<td>
+								<%= link_to blog_path, method: :delete , data: {confirm: '本当にいいの???'} do %>
+									<span class="btn btn-danger" style="width: 80px">Destroy</span>
+								<% end %>
+							</td>
+						<% end %>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
