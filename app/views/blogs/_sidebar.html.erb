@@ -15,16 +15,33 @@
 				<th><%= user.introduction %></th>
 			</tr>
 		</table>
-		<%= link_to edit_user_path(user) do %>
-		<div class="list-group list-group-item col-xs-12">
-				<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
-		</div>
+
+		<% if user == current_user %>
+
+			<%= link_to edit_user_path(user) do %>
+			<div class="list-group list-group-item col-xs-12">
+					<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+			</div>
+			<% end %>
 		<% end %>
 
 				<!-- 新規投稿 -->
 
 		<h2 class="new-book">New book</h2>
+
 			<%= form_for(blog) do |f| %>
+
+				<% if blog.errors.any? %>
+					<div id="error_explanation">
+						<h2><%= blog.errors.count %>件のエラーが発生しました。</h2>
+						<ul>
+							<% blog.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>
+						</ul>
+					</div>
+				<% end %>
+
 				<p class="new-title"><strong>Title</strong></p>
 				<%= f.text_field :title, class: "col-xs-12 title-field" %>
 				<p class="new-body"><strong>Opinion</strong></p>

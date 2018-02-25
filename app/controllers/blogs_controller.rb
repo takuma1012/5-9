@@ -22,12 +22,14 @@ before_action :authenticate_user!,except: [:choose, :about]
   end
 
   def create
-  	blog = Blog.new(blog_params)
-    blog.user_id = current_user.id
-      if blog.save
-      	redirect_to blog_path(blog), notice: 'Created new book!!'
+    @user = current_user
+    @blogs = Blog.all
+  	@blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id
+      if @blog.save
+      	redirect_to blog_path(@blog), notice: 'Created new book!!'
       else
-        render 'choose'
+        render 'index', blog: @blog, user: @user
       end
   end
 
